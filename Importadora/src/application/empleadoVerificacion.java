@@ -6,19 +6,20 @@
 package application;
 
 public class empleadoVerificacion
+
 {
     String nombre;
     String direccion;
-    int ci;
-    int telefono;
-    int ID;
+    String ci;
+    String telefono;
+    String ID;
     String contrasenia;
     public empleadoVerificacion()
     {
         nombre="";
         direccion="";
-        int ci=0;
-        int ID=0;
+        String ci="";
+        String ID="";
         String contrasenia="";   
     }
     public String getNombre(){
@@ -27,13 +28,13 @@ public class empleadoVerificacion
     public String getDireccion(){
         return direccion;
     }
-    public int getCI(){
+    public String getCI(){
         return ci;
     }
-    public int getTelefono(){
+    public String getTelefono(){
         return telefono;
     }
-    public int getID(){
+    public String getID(){
         return ci;
     }
     public String getContrasenia(){
@@ -45,12 +46,12 @@ public class empleadoVerificacion
     public void setDireccion(String direccion){
         this.direccion=direccion;
     }
-    public void setCI(int ci){
+    public void setCI(String ci){
         this.ci=ci;    }
-    public void setTelefono(int telefono){
+    public void setTelefono(String telefono){
         this.telefono=telefono;
     }
-    public void setID(int id){
+    public void setID(String id){
         ID=id;
     }
     public void setContrasenia(String password){
@@ -101,5 +102,33 @@ public class empleadoVerificacion
         if('z'==caracter || 'Z'==caracter){bandera=true;}
         return bandera;
     }
-
+       public boolean numeros(char caracter){
+        boolean bandera=false;
+        if('0'==caracter){bandera=true;}
+        if('1'==caracter){bandera=true;}
+        if('2'==caracter){bandera=true;}
+        if('3'==caracter){bandera=true;}
+        if('4'==caracter){bandera=true;}
+        if('5'==caracter){bandera=true;}
+        if('6'==caracter){bandera=true;}
+        if('7'==caracter){bandera=true;}
+        if('8'==caracter){bandera=true;}
+        if('9'==caracter){bandera=true;}
+        return bandera;
+    }
+    public boolean validarTelyCi(String texto){
+        int contador=0;
+        boolean bandera=false;
+        for(int i=0;i<texto.length();i++){
+         if(numeros(texto.charAt(i))==true){
+          contador++;
+         }
+        }
+        if(contador==texto.length()){
+            bandera=true;
+        }else{
+            bandera=false;
+        }
+        return bandera;
+    }
 }
